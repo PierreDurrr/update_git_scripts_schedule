@@ -3,7 +3,7 @@
 Add to crontab :
 
 ```bash
-#### VALLERES ONLY ###
+#### VALLERES ONLY - COMMENT FOR TOURS ###
 ######################
 # AT 9 EVERY DAY
 0 9 * * * shutdown -r now
