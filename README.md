@@ -8,8 +8,8 @@ Add to crontab :
 #
 #
 # EVERY 30 MINUTES -  PLEX AUTO COLLECTIONS #
-0 * * * * cd /scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /scripts-configs/00-Plex-Auto-Collections/valleres.yml >> /prout.txt
-30 * * * * cd /scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /scripts-configs/00-Plex-Auto-Collections/serveur-valleres.yml >> /prout-serveur.txt
+0 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-configs/00-Plex-Auto-Collections/valleres.yml >> /prout.txt
+30 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-configs/00-Plex-Auto-Collections/serveur-valleres.yml >> /prout-serveur.txt
 #
 #
 # EVERY 3 HOURS
