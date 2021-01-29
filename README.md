@@ -1,4 +1,4 @@
-# update_git-_scripts_schedule
+# update_git_scripts_schedule
 
 Add to crontab :
 
