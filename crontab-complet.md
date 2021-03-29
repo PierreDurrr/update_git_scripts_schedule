@@ -1,0 +1,59 @@
+#
+# Dell Silent PowerEdge
+# At every 2nd minute
+#*/2 * * * * /bin/bash /scripts/02-dell-ipmi-fan-control/dell_ipmi_fan_control.sh >> /tmp/cron.log
+#
+#
+### TOURS ONLY - COMMENT FOR VALLERES ###
+# OVH Dynhost Renew
+# At every 5 minutes
+*/5 * * * * cd /_0_scripts/03-ovh-dynhost && python script.py -c /_0_scripts-config/03-ovh-dynhost/dynhost.conf >> ./last_exec.prout.log
+##################
+#
+#
+### Halloween Playlist - Add
+### At every October 20th
+###0 0 20 10 * cd /_0_scripts/01-plex-playlists-manager/01-halloween-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Les Films qui font Peur !" créée !'
+0 0 20 10 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur --action add --limit 999 --filter genre='horreur' --name 'Les Films Qui Font Peur !' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Les Films qui font Peur !" créée !'
+#
+### Halloween Playlist - Remove
+### At every November 1st
+###0 0 01 11 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Les Films qui font peur !" supprimée'
+0 0 01 11 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Les Films Qui Font Peur !' --allUsers
+#
+#
+### Paques Playlist - Add
+### At every March 30th
+###0 0 30 03 * cd /_0_scripts/01-plex-playlists-manager/02-noel-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
+0 0 30 03 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur --action add --limit 999 --search summary='pâques' --name 'Chasse aux oeufs !' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Chasse aux oeufs !" créée !'
+#
+### Paques Playlist - Remove
+### At every April 8th
+###0 0 08 04 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Chasse aux oeufs !" supprimée'
+0 0 08 04 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Chasse aux oeufs !' --allUsers
+#
+#
+### Christmas Playlist - Add
+### At every December 1st
+###0 0 01 12 * cd /_0_scripts/01-plex-playlists-manager/02-noel-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
+0 0 01 12 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur --action add --limit 999 --search summary='noël' --name 'All I Want For Christmas...' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
+#
+### Christmas Playlist - Remove
+### At every January 10th
+###0 0 10 01 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." supprimée'
+0 0 10 01 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'All I Want For Christmas...' --allUsers
+#
+#
+### MZA PLEX AUTO COLLECTIONS TOURS - COMMENT FOR VALLERES ###
+# EVERY 30 MINUTES -  PLEX AUTO COLLECTIONS #
+0 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/config.yml >> /prout.txt
+30 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/config-serveur.yml >> /prout-serveur.txt
+
+### MZA PLEX AUTO COLLECTIONS VALLERES - COMMENT FOR TOURS ###
+# EVERY 30 MINUTES -  PLEX AUTO COLLECTIONS #
+#0 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/valleres.yml >> /prout.txt
+#30 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/serveur-valleres.yml >> /prout-serveur.txt
+
+# EVERY 3 HOURS
+# GIT PULL TO UPDATES SCRIPTS AND CONFIG #
+0 */3 * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh
