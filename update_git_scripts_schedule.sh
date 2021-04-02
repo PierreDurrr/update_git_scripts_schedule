@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #
 ######UPDATE SCRIPTS######
+cd /_0_scripts/000-Plex-Meta-Manager
+git pull
 cd /_0_scripts/000-JBOPS
 git pull
 cd /_0_scripts/000-Plex-Auto-Collections
