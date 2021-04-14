@@ -46,14 +46,30 @@
 #
 ### MZA PLEX AUTO COLLECTIONS TOURS - COMMENT FOR VALLERES ###
 # EVERY 30 MINUTES -  PLEX AUTO COLLECTIONS #
-0 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/config.yml >> /prout.txt
-30 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/config-serveur.yml >> /prout-serveur.txt
+#0 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/config.yml >> /prout.txt
+#30 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/config-serveur.yml >> /prout-serveur.txt
 
 ### MZA PLEX AUTO COLLECTIONS VALLERES - COMMENT FOR TOURS ###
 # EVERY 30 MINUTES -  PLEX AUTO COLLECTIONS #
 #0 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/valleres.yml >> /prout.txt
 #30 * * * * cd /_0_scripts/000-Plex-Auto-Collections/app && python3 plex_auto_collections.py -u -c /_0_scripts-config/000-Plex-Auto-Collections/serveur-valleres.yml >> /prout-serveur.txt
 
+### MEISNATE12 PLEX-META-MANAGER TOURS - COMMENT FOR VALLERES ###
+# EVERY 30 MINUTES
+0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config.yml >> /zigounette.txt
+
+### MEISNATE12 PLEX-META-MANAGER VALLERES - COMMENT FOR TOURS ###
+# EVERY 30 MINUTES
+#0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config-valleres.yml >> /zigounette.txt
+
 # EVERY 3 HOURS
 # GIT PULL TO UPDATES SCRIPTS AND CONFIG #
 0 */3 * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh
+
+# Sonarr Force Search Script
+# At every 40nd minute
+*/40 * * * * /bin/bash /scripts/sonarr_force_search.sh
+
+# Radarr Force Search Script
+# At every 6 hours and 26 minutes
+26 */6 * * * /bin/bash /scripts/radarr_force_search.sh
