@@ -11,8 +11,8 @@ cd /_0_scripts/000-TMDB-Collection-Data-Retriever
 git pull
 cd /_0_scripts/00-Slacktee
 git pull
-cd _0_scripts/03-ovh-dynhost
-git pull
+#cd /_0_scripts/03-ovh-dynhost
+#git pull
 #
 #
 ######UPDATE CONFIG######
