@@ -16,5 +16,5 @@ git pull
 #
 #
 ######UPDATE CONFIG######
-cd /_0_scripts-configs/
+cd /_0_scripts-config/
 git pull
