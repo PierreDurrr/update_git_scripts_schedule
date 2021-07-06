@@ -3,6 +3,7 @@
 ######UPDATE SCRIPTS######
 cd /_0_scripts/000-Plex-Meta-Manager
 git pull
+pip3 install -r requirements.txt
 cd /_0_scripts/000-JBOPS
 git pull
 cd /_0_scripts/000-Plex-Auto-Collections
