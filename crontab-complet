@@ -77,3 +77,4 @@
 # OVH DYNHOST
 # EVERY MINUTE
 * * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv --subdomain vpn
+* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv
