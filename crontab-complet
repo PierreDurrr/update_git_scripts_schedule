@@ -73,3 +73,7 @@
 # Radarr Force Search Script
 # At every 6 hours and 26 minutes
 26 */6 * * * /bin/bash /scripts/radarr_force_search.sh
+
+# OVH DYNHOST
+# EVERY MINUTE
+* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv --subdomain vpn
