@@ -74,7 +74,13 @@
 # At every 6 hours and 26 minutes
 26 */6 * * * /bin/bash /scripts/radarr_force_search.sh
 
-# OVH DYNHOST
+# OVH DYN IP UPDATE - VALLERES - COMMENT FOR TOURS
+# https://github.com/denouche/ovh-dyndns
+# EVERY MINUTE
+#* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierrelegeek.ovh --subdomain vpn
+
+# OVH DYN IP UPDATE - TOURS - COMMENT FOR VALLERES
+# https://github.com/denouche/ovh-dyndns
 # EVERY MINUTE
 * * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv --subdomain vpn
 * * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv
