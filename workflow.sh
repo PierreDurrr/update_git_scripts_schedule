@@ -41,9 +41,14 @@ git clone https://github.com/steven-martins/ovh-dynhost.git 03-ovh-dynhost
 #cd 03-ovh-dynhost
 #pip3 install -r requirements.txt
 cd /_0_scripts
-git clone https://github.com/denouche/ovh-dyndns.git 05-ovhdyn
-cd 05-ovhdyn
-git remote add upstream git://github.com/denouche/ovh-dyndns.git
+#git clone https://github.com/denouche/ovh-dyndns.git 05-ovhdyn
+#cd 05-ovhdyn
+#git remote add upstream git://github.com/denouche/ovh-dyndns.git
+#git fetch upstream
+cd /_0_scripts
+git clone https://github.com/twallois/ovh-dns-change-ip.git 07-ovh-dns-change-ip
+cd 07-ovh-dns-change-ip
+git remote add upstream git://github.com/twallois/ovh-dns-change-ip.git
 git fetch upstream
 cd /_0_scripts
 git clone https://github.com/meisnate12/Plex-Meta-Manager.git 000-Plex-Meta-Manager
