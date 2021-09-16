@@ -16,6 +16,7 @@ git pull
 #git pull
 cd /_0_scripts/05-ovhdyn
 git pull
+cd /_0_scripts/07-ovh-dns-change-ip
 #
 #
 ######UPDATE CONFIG######
