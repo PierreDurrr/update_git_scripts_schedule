@@ -56,6 +56,13 @@ cd 000-Plex-Meta-Manager
 pip3 install -r requirements.txt
 git remote add upstream git://github.com/meisnate12/Plex-Meta-Manager.git
 git fetch upstream
+cd /_0_scripts
+git clone https://github.com/TheHumanRobot/Plex-Automatic-Preroll.git 000-Plex-Automatic-Preroll
+cd 000-Plex-Automatic-Preroll
+pip3 install -r requirements.txt
+git remote add upstream git://github.com/TheHumanRobot/Plex-Automatic-Preroll.git
+git fetch upstream
+cd /
 cd /
 #
 ######GIT CLONE FOR CONFIG FILES######
