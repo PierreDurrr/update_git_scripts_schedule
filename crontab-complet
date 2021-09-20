@@ -84,3 +84,7 @@
 # EVERY MINUTE
 * * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv --subdomain vpn
 * * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv
+
+# PLEX AUTOMATIC PREROLL
+# EVERY DAY AT 00h00
+0 0 * * * python3 /_0_scripts/000-Plex-Automatic-Preroll/Plex_Trailers.py 2>&1
