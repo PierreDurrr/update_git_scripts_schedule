@@ -62,7 +62,10 @@ cd 000-Plex-Automatic-Preroll
 pip3 install -r requirements.txt
 git remote add upstream git://github.com/TheHumanRobot/Plex-Automatic-Preroll.git
 git fetch upstream
-cd /
+cd /_0_scripts
+mkdir 09_remove_empty_collections
+cd 09_remove_empty_collections
+wget https://gist.githubusercontent.com/blacktwin/30e2826a49c33814e1cc61c34ff07465/raw/e844e47d35db72def6c88e396ef0116e16a77734/remove_lonely_collections.py
 cd /
 #
 ######GIT CLONE FOR CONFIG FILES######
