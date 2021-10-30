@@ -36,7 +36,7 @@
 ### Christmas Playlist - Add
 ### At every December 1st
 ###0 0 01 12 * cd /_0_scripts/01-plex-playlists-manager/02-noel-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
-0 0 01 12 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur --action add --limit 999 --search summary='noël' --name 'All I Want For Christmas...' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
+0 0 01 12 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur --action add --limit 999 --search summary='noël' --name 'All I Want For Christmas...' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !' | curl "https://joinjoaomgcd.appspot.com/_ah/api/messaging/v1/sendPush?text=Playlist%20de%20Christmas%20sur%20Pierreflix&title=Nouvelle%20Playlist&imagehttps%3A%2F%2Fimages.emojiterra.com%2Fgoogle%2Fandroid-11%2F128px%2F1f384.png&deviceId=0b40e9f8ae9d44378b0161efee377b13&apikey=a185a2662f8e436ea7d425f091bcd54f"
 #
 ### Christmas Playlist - Remove
 ### At every January 10th
@@ -56,15 +56,11 @@
 
 ### MEISNATE12 PLEX-META-MANAGER TOURS - COMMENT FOR VALLERES ###
 # EVERY 30 MINUTES
-0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull &&python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config.yml >> /zigounette.txt
-
-### MEISNATE12 PLEX-META-MANAGER VALLERES - COMMENT FOR TOURS ###
-# EVERY 30 MINUTES
-#0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull & python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config-valleres.yml >> /zigounette.txt
+0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config.yml >> /zigounette-ok.txt
 
 # EVERY 3 HOURS
 # GIT PULL TO UPDATES SCRIPTS AND CONFIG #
-0 */3 * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh
+0 */3 * * * cd / && rm update_git_scripts_schedule.sh* && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh
 
 # Sonarr Force Search Script
 # At every 40nd minute
@@ -74,16 +70,12 @@
 # At every 6 hours and 26 minutes
 26 */6 * * * /bin/bash /scripts/radarr_force_search.sh
 
-# OVH DYN IP UPDATE - VALLERES - COMMENT FOR TOURS
-# https://github.com/denouche/ovh-dyndns
+# OVH DYNHOST
 # EVERY MINUTE
-#* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierrelegeek.ovh --subdomain vpn
-
-# OVH DYN IP UPDATE - TOURS - COMMENT FOR VALLERES
-# https://github.com/denouche/ovh-dyndns
-# EVERY MINUTE
-* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv --subdomain vpn
-* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv
+#* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv --subdomain vpn
+#* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierreflix.tv
+* * * * * python3 /_0_scripts/07-ovh-dns-change-ip/ovh-dns-change-ip.py
+* * * * * python3 /_0_scripts/07-ovh-dns-change-ip-vpn/ovh-dns-change-ip.py
 
 # PLEX AUTOMATIC PREROLL
 # EVERY DAY AT 00h00
