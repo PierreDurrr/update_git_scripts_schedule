@@ -51,6 +51,11 @@ cd 07-ovh-dns-change-ip
 git remote add upstream git://github.com/twallois/ovh-dns-change-ip.git
 git fetch upstream
 cd /_0_scripts
+git clone https://github.com/twallois/ovh-dns-change-ip.git 07-ovh-dns-change-ip-vpn
+cd 07-ovh-dns-change-ip-vpn
+git remote add upstream git://github.com/twallois/ovh-dns-change-ip.git
+git fetch upstream
+cd /_0_scripts
 git clone https://github.com/meisnate12/Plex-Meta-Manager.git 000-Plex-Meta-Manager
 cd 000-Plex-Meta-Manager
 pip3 install -r requirements.txt
