@@ -18,6 +18,8 @@ cd /_0_scripts/05-ovhdyn
 git pull
 cd /_0_scripts/07-ovh-dns-change-ip
 git pull
+cd /_0_scripts/07-ovh-dns-change-ip-vpn
+git pull
 cd /_0_scripts/000-Plex-Automatic-Preroll
 git pull
 #
