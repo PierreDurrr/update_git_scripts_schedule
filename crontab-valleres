@@ -1,0 +1,101 @@
+#
+# Dell Silent PowerEdge
+# At every 2nd minute
+#*/2 * * * * /bin/bash /scripts/02-dell-ipmi-fan-control/dell_ipmi_fan_control.sh >> /tmp/cron.log
+#
+#
+##########################################
+#### VALLERES ONLY - COMMENT FOR TOURS ###
+##########################################
+# AT 9 EVERY DAY
+0 9 * * * shutdown -r now
+##########################################
+#
+##########################################
+#### VALLERES ONLY - COMMENT FOR TOURS ###
+##########################################
+# AT EVERY 5 MINUTES
+*/5 * * * * mount -a
+##########################################
+### TOURS ONLY - COMMENT FOR VALLERES ####
+##########################################
+# OVH Dynhost Renew
+# At every 5 minutes
+#*/5 * * * * cd /_0_scripts/03-ovh-dynhost && python script.py -c /_0_scripts-config/03-ovh-dynhost/dynhost.conf >> ./last_exec.prout.log
+##################
+##
+### Halloween Playlist - Add
+### At every October 20th
+###0 0 20 10 * cd /_0_scripts/01-plex-playlists-manager/01-halloween-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Les Films qui font Peur !" créée !'
+0 0 20 10 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur Recommendations --action add --limit 999 --filter genre='horreur' --name 'Les Films Qui Font Peur !' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Les Films qui font Peur !" créée !'
+#
+### Halloween Playlist - Remove
+### At every November 1st
+###0 0 01 11 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Les Films qui font peur !" supprimée'
+0 0 01 11 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Les Films Qui Font Peur !' --allUsers
+#
+### Paques Playlist - Add
+### At every March 30th
+###0 0 30 03 * cd /_0_scripts/01-plex-playlists-manager/02-noel-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
+0 0 30 03 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur --action add --limit 999 --search summary='pâques' --name 'Chasse aux oeufs !' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Chasse aux oeufs !" créée !'
+#
+### Paques Playlist - Remove
+### At every April 8th
+###0 0 08 04 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Chasse aux oeufs !" supprimée'
+0 0 08 04 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Chasse aux oeufs !' --allUsers
+#
+### Christmas Playlist - Add
+### At every December 1st
+###0 0 01 12 * cd /_0_scripts/01-plex-playlists-manager/02-noel-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
+0 0 25 11 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur Recommendations --action add --limit 999 --search summary='noël' --name 'All I Want For Christmas...' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !' | curl "https://joinjoaomgcd.appspot.com/_ah/api/messaging/v1/sendPush?text=Playlist%20de%20Christmas%20sur%20Pierreflix&title=Nouvelle%20Playlist&imagehttps%3A%2F%2Fimages.emojiterra.com%2Fgoogle%2Fandroid-11%2F128px%2F1f384.png&deviceId=0b40e9f8ae9d44378b0161efee377b13&apikey=a185a2662f8e436ea7d425f091bcd54f"
+#
+### Christmas Playlist - Remove
+### At every January 10th
+###0 0 10 01 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." supprimée'
+0 0 10 01 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'All I Want For Christmas...' --allUsers
+#
+#################################################################
+### MEISNATE12 PLEX-META-MANAGER TOURS - COMMENT FOR VALLERES ###
+#################################################################
+# EVERY 30 MINUTES
+#0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config.yml >> /zigounette-ok.txt && curl https://health.pierreflix.tv/ping/a602a3c2-bab4-4357-83f1-d67b7e300933
+#
+#################################################################
+### MEISNATE12 PLEX-META-MANAGER VALLERES - COMMENT FOR TOURS ###
+#################################################################
+# EVERY 30 MINUTES
+0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull & python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config-valleres.yml >> /zigounette.txt
+
+# EVERY 3 HOURS
+# GIT PULL TO UPDATES SCRIPTS AND CONFIG #
+0 */3 * * * cd / && rm update_git_scripts_schedule.sh* && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh
+#
+# Sonarr Force Search Script
+# At every 40nd minute
+#*/40 * * * * /bin/bash /scripts/sonarr_force_search.sh
+#
+# Radarr Force Search Script
+# At every 6 hours and 26 minutes
+#26 */6 * * * /bin/bash /scripts/radarr_force_search.sh
+#
+#########################################
+### TOURS ONLY - COMMENT FOR VALLERES ###
+#########################################
+# OVH DYNHOST
+# EVERY MINUTE
+#* * * * * python3 /_0_scripts/07-ovh-dns-change-ip/ovh-dns-change-ip.py
+#* * * * * python3 /_0_scripts/07-ovh-dns-change-ip-vpn/ovh-dns-change-ip.py
+#
+########################################################
+### OVH DYN IP UPDATE - VALLERES - COMMENT FOR TOURS ###
+########################################################
+# https://github.com/denouche/ovh-dyndns
+# EVERY MINUTE
+* * * * * /_0_scripts/05-ovhdyn/ovh-dyndns.sh --domain pierrelegeek.ovh --subdomain vpn
+#
+##############################
+### PLEX AUTOMATIC PREROLL ###
+##############################
+# EVERY DAY AT 00h00
+#* * * * * cd /_0_scripts/000-Plex-Automatic-Preroll && python3 Plex_Trailers.py | ts '[%Y-%m-%d %H:%M:%S]' >> ./wesh.txt && curl -fsS -m 10 --retry 5 -o /dev/null https://health.pierreflix.tv/ping/fe6473b6-d3b4-4f10-a573-698fa9b219fc
+0 */3 * * * cd /_0_scripts/000-Plex-Automatic-Preroll && python3 Plex_Trailers.py && curl -fsS -m 10 --retry 5 -o /dev/null https://health.pierreflix.tv/ping/fe6473b6-d3b4-4f10-a573-698fa9b219fc
