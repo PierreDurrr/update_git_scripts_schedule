@@ -64,7 +64,7 @@
 ### MEISNATE12 PLEX-META-MANAGER VALLERES - COMMENT FOR TOURS ###
 #################################################################
 # EVERY 30 MINUTES
-0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull & python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config-valleres.yml >> /zigounette.txt && https://health.pierreflix.tv/ping/4e1cd418-7f07-4501-819f-79aa43a3404a
+0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config-valleres.yml >> /zigounette.txt && https://health.pierreflix.tv/ping/4e1cd418-7f07-4501-819f-79aa43a3404a
 
 # EVERY 3 HOURS
 # GIT PULL TO UPDATES SCRIPTS AND CONFIG #
