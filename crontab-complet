@@ -31,7 +31,7 @@
 ### Halloween Playlist - Remove
 ### At every November 1st
 ###0 0 01 11 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Les Films qui font peur !" supprimée'
-0 0 01 11 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Les Films Qui Font Peur !' --allUsers
+0 0 01 11 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Les Films Qui Font Peur !' --allUsers --self
 #
 ### Paques Playlist - Add
 ### At every March 30th
@@ -41,17 +41,17 @@
 ### Paques Playlist - Remove
 ### At every April 8th
 ###0 0 08 04 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "Chasse aux oeufs !" supprimée'
-0 0 08 04 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Chasse aux oeufs !' --allUsers
+0 0 08 04 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'Chasse aux oeufs !' --allUsers --self
 #
 ### Christmas Playlist - Add
 ### At every December 1st
 ###0 0 01 12 * cd /_0_scripts/01-plex-playlists-manager/02-noel-playlist.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !'
-0 0 25 11 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur --action add --limit 999 --search summary='noël' --name 'All I Want For Christmas...' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !' | curl "https://joinjoaomgcd.appspot.com/_ah/api/messaging/v1/sendPush?text=Playlist%20de%20Christmas%20sur%20Pierreflix&title=Nouvelle%20Playlist&imagehttps%3A%2F%2Fimages.emojiterra.com%2Fgoogle%2Fandroid-11%2F128px%2F1f384.png&deviceId=0b40e9f8ae9d44378b0161efee377b13&apikey=a185a2662f8e436ea7d425f091bcd54f"
+0 0 25 11 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --libraries Films Films_Serveur Recommendations --action add --limit 999 --search summary='noël' --name 'All I Want For Christmas...' --allUsers --self | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." créée !' | curl "https://joinjoaomgcd.appspot.com/_ah/api/messaging/v1/sendPush?text=Playlist%20de%20Christmas%20sur%20Pierreflix&title=Nouvelle%20Playlist&imagehttps%3A%2F%2Fimages.emojiterra.com%2Fgoogle%2Fandroid-11%2F128px%2F1f384.png&deviceId=0b40e9f8ae9d44378b0161efee377b13&apikey=a185a2662f8e436ea7d425f091bcd54f"
 #
 ### Christmas Playlist - Remove
 ### At every January 10th
 ###0 0 10 01 * cd /_0_scripts/01-plex-playlists-manager/00-delete-playlists.py | /scripts/00-slacktee/slacktee.sh -t 'Pierreflix.tv - Playlist "All I Want For Christmas..." supprimée'
-0 0 10 01 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'All I Want For Christmas...' --allUsers
+0 0 10 01 * cd /_0_scripts/000-JBOPS/fun/ && python3 playlist_manager.py --action remove --playlist 'All I Want For Christmas...' --allUsers --self
 #
 ### MEISNATE12 PLEX-META-MANAGER TOURS - COMMENT FOR VALLERES ###
 # EVERY 30 MINUTES
