@@ -59,9 +59,13 @@
 ##########################################
 # AT 02H00
 0 2 * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config.yml >> /zigounette-ok.txt && curl https://health.pierreflix.tv/ping/a602a3c2-bab4-4357-83f1-d67b7e300933
+#
 # AT 14H00
 0 14 * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config.yml >> /zigounette-ok.txt && curl https://health.pierreflix.tv/ping/a602a3c2-bab4-4357-83f1-d67b7e300933
 #
+# AT EVERY HOUR
+0 * * * * cd / && rm update_git_scripts_schedule.sh && wget https://raw.githubusercontent.com/PierreDurrr/update_git_scripts_schedule/master/update_git_scripts_schedule.sh && chmod +x update_git_scripts_schedule.sh && ./update_git_scripts_schedule.sh && cd /_0_scripts-config/000-Plex-Meta-Manager/ && git pull && cd /_0_scripts/000-Plex-Meta-Manager/ && git pull && python3 plex_meta_manager.py -r --config /_0_scripts-config/000-Plex-Meta-Manager/config/config.yml && curl https://health.pierreflix.tv/ping/a602a3c2-bab4-4357-83f1-d67b7e300933
+
 ##########################################
 # GIT PULL TO UPDATES SCRIPTS AND CONFIG #
 ##########################################
